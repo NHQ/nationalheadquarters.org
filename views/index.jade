@@ -1,2 +1,36 @@
-h1= title
-p Welcome to #{title}
+div.container
+  div.header
+    h1#header= title
+
+  div.console
+    iframe(id='reel',src="http://player.vimeo.com/video/40337000?byline=0&amp;color=ffffff", frameborder="0", webkitAllowFullScreen mozallowfullscreen allowFullScreen)
+    br
+    div(class='humans')
+      h1 HUMANS
+      each person, key in people
+        div(class='person')
+          img(src='images/'+key+'_hi_res_thumb.jpg')
+          p !{person.blurb}
+    h1 CONTACT
+    div.contact
+      h3 Angeline Gragasin | LA, SF
+      br
+      h3 angeline@nationalheadquarters.org
+      br
+      h3 312-532-3639
+      br
+    div.contact.odd
+      h3 Rachel Wolther | NYC
+      br
+      h3 rachel@nationalheadquarters.org
+      br
+      h3 312-532-3639
+      br
+    div.contact
+      h3 Daniel Postilnik | CHICAGO
+      br
+      h3 daniel@nationalheadquarters.org
+      br
+      h3 312-532-3639
+      br
+  script(type='text/javascript', src='js/nhq.js')

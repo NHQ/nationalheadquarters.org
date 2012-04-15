@@ -1,3 +1,39 @@
+var fs = require('fs')
+ 	,	order = [
+'angeline_gragasin',
+'giga_shane',
+'meredith_zielke',
+'rachel_wolther',
+'carl_sondrol',
+'alex_mackenzie',
+'jeff_katz',
+'susan_yi',
+'daniel_postilnik',
+'rebecca_berdel',
+'abby_walton',
+'jesse_millward',
+];
+
+var humans = fs.readdirSync('humans')
+	, people = Object.create(null)
+;
+
+console.log(humans)
+
+while (order.length){
+	var Name = order.shift();
+	fs.link('humans/'+Name+'/hi_res_thumb.jpg', 'public/images/'+Name+'_hi_res_thumb.jpg')
+	console.log(Name)
+	people[Name] = {
+		name: Name.replace('_', ' '),
+		bio: fs.readFileSync('humans/'+Name+'/bio.html', 'utf8'),
+		blurb: fs.readFileSync('humans/'+Name+'/blurb.html', 'utf8')
+	}
+}
+
+
+
+
 var metaData = {
 	title: 'NATIONAL HEADQUARTERS'
 };
@@ -8,7 +44,7 @@ var metaData = {
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'NATIONAL HEADQUARTERS' })
+  res.render('index', { title: 'NATIONAL HEADQUARTERS', people: people})
 };
 
 exports.people = function(req, res){
