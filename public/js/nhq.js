@@ -28,9 +28,13 @@ var Pendulum = function(min, max, startVal, incrby){
 ,
 swing = Pendulum(0, 255, 0, 5);
 
-var reel = document.getElementById('reel')
+var reel = document.getElementById('film')
 	,	container = document.querySelector('.container')
-	,	cs = window.getComputedStyle(container)
+	;
+	
+	container.style.width = window.innerWidth * .9 +'px';
+	
+	var cs = window.getComputedStyle(container)
 	,	cr = window.getComputedStyle(reel)
 	, ratio = 16/9
 ;
@@ -48,4 +52,3 @@ function Colors(){
 	};
 }; 
 var colors = new Colors();
-setInterval(colors, 21)

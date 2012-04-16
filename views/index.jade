@@ -1,36 +1,56 @@
+div.header
+  h1.banner= title
+  ul.menu
+    li.menuItem
+      a(href='#humans') Humans
+    li.menuItem
+      a(href='#news') News
+    li.menuItem
+      a(href='#reel') Reel
+    li.menuItem
+      a(href='#clients') Clients
+    li.menuItem
+      a(href='#contact') Contact
+
 div.container
-  div.header
-    h1#header= title
 
   div.console
-    iframe(id='reel',src="http://player.vimeo.com/video/40337000?byline=0&amp;color=ffffff", frameborder="0", webkitAllowFullScreen mozallowfullscreen allowFullScreen)
+    div#reel
+      div.buffer
+      iframe(id='film',src="http://player.vimeo.com/video/40337000?byline=0&amp;color=ffffff", frameborder="0", webkitAllowFullScreen mozallowfullscreen allowFullScreen)
     br
-    div(class='humans')
-      h1 HUMANS
+    div.humans#humans
+      div.buffer
+      h1.subHead HUMANS
       each person, key in people
         div(class='person')
           img(src='images/'+key+'_hi_res_thumb.jpg')
           p !{person.blurb}
-    h1 CONTACT
-    div.contact
-      h3 Angeline Gragasin | LA, SF
-      br
-      h3 angeline@nationalheadquarters.org
-      br
-      h3 312-532-3639
-      br
-    div.contact.odd
-      h3 Rachel Wolther | NYC
-      br
-      h3 rachel@nationalheadquarters.org
-      br
-      h3 312-532-3639
-      br
-    div.contact
-      h3 Daniel Postilnik | CHICAGO
-      br
-      h3 daniel@nationalheadquarters.org
-      br
-      h3 312-532-3639
-      br
+    div#news
+      div.buffer
+      h1.subHead NEWS
+    div#contact
+      div.buffer
+      h1.subHead CONTACT
+      div.contact
+        h3 Angeline Gragasin | LOS ANGELES
+        br
+        h3 angeline@nationalheadquarters.org
+        br
+        h3 312-532-3639
+        br
+      div.contact.odd
+        h3 Rachel Wolther | NEW YORK CITY
+        br
+        h3 rachel@nationalheadquarters.org
+        br
+        h3 312-532-3639
+        br
+      div.contact
+        h3 Daniel Postilnik | CHICAGO
+        br
+        h3 daniel@nationalheadquarters.org
+        br
+        h3 312-532-3639
+        br
   script(type='text/javascript', src='js/nhq.js')
