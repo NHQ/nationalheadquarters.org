@@ -19,6 +19,7 @@ app.configure(function(){
   app.use(require('stylus').middleware({ src: __dirname + '/public' }));
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
+  app.use(express.favicon(__dirname + '/public/images/nhq_logo.gif'));
 });
 
 app.configure('development', function(){
@@ -34,5 +35,5 @@ app.configure('production', function(){
 app.get('/', routes.index);
 
 var port = app.settings.env === 'production' ? 80 : 3000
-app.listen(port);
+app.listen(80);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
