@@ -39,7 +39,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  height: 87px;
+  height: 107px;
   color: #fff;
   background: #000;
   font: 1.33rem 'JeanLuc';
@@ -53,11 +53,11 @@ h1.subHead {
   background: #000;
   font-size: 3rem;
   font: 2rem 'JeanLuc';
-  width: 33%;
+  width: 23%;
   margin: 0 auto 2rem;
 }
 .banner {
-  padding-top: 7px;
+  padding: 11px;
 }
 .menu {
   text-align: left;
@@ -71,7 +71,7 @@ h1.subHead {
   font: italic 1.4rem 'Times New Roman';
 }
 .buffer {
-  height: 98px;
+  height: 117px;
 }
 h1:not(.banner,
 .subHead) {
@@ -105,33 +105,41 @@ h4 {
   vertical-align: top;
   display: inline-block;
   width: 25%;
-  height: 600px;
+  height: 650px;
 }
 .person > img {
   width: 75%;
   display: block;
+  cursor: pointer;
 }
 .person > p {
+  width: 85%;
   padding: 0 1.3rem 0 0;
   text-align: left;
   font: 2.6rem 'Lucida Sans Unicode' #000;
   line-height: 1.63rem;
 }
+.rollOver {
+  cursor: pointer;
+}
+.rollOver:hover > img {
+  visibility: hidden;
+}
 .person > h1 {
-  font-size: 1.5rem;
+  font: italic 1.8rem 'Times New Roman';
   margin: 0.25rem 0;
   color: #000;
 }
 .person > h2 {
   font-size: 1rem;
   margin: 0.25rem 0;
-  color: #333;
+  color: rgba(0,0,0,0.50);
 }
 .contact {
   width: 33%;
   height: 8rem;
   display: inline-block;
-  margin-bottom: 100%;
+  margin-bottom: 40%;
 }
 .contact.odd {
   border-right: 1px solid #333;
@@ -149,7 +157,45 @@ h4 {
 .footer {
   background: #000;
   color: #fff;
-  position: fixed;
   bottom: 0;
   left: 0;
+  height: 237px;
+}
+.footer > h2 {
+  font: italic 1.4rem 'Times New Roman';
+}
+p.news {
+  font: italic 3rem 'Times New Roman';
+}
+.news > a {
+  text-decoration: underline;
+  color: #19aaff;
+  font-weight: 900;
+}
+.comingSoon {
+  width: 75%;
+  position: relative;
+  top: 40px;
+  left: 0;
+  cursor: pointer;
+  text-align: left;
+  z-index: -1;
+}
+.comingSoon > h2 {
+  font-size: 3rem;
+}
+.logo {
+  margin: 35px 5px 0;
+}
+.tip {
+  text-align: center;
+  background: rgba(0,0,0,0.30);
+  position: fixed;
+  width: 200px;
+  height: 70px;
+  left: 10px;
+  top: 300px;
+  display: none;
+  color: #fff;
+  z-index: 9;
 }

@@ -32,8 +32,10 @@ while (order.length){
 }
 
 
-
-
+var news = fs.readFileSync('news/news.html', 'utf8')
+	,	logos = fs.readdirSync('public/images/logos')
+	;
+console.log(logos)
 var metaData = {
 	title: 'NATIONAL HEADQUARTERS'
 };
@@ -44,10 +46,10 @@ var metaData = {
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'NATIONAL HEADQUARTERS', people: people})
+  res.render('index', { title: 'NATIONAL HEADQUARTERS', people: people, news: news, logos: logos})
 };
 
 exports.people = function(req, res){
 	var includes = 'include bio/' + req.params.name + '.html';
-	res.render('people', {title: metaData.title, includes: includes, person: [req.params.name]})
+	res.render('people', {title: metaData.title, includes: includes, person: [req.params.name], logos: logos})
 }
