@@ -50,6 +50,5 @@ exports.index = function(req, res){
 };
 
 exports.people = function(req, res){
-	var includes = 'include bio/' + req.params.name + '.html';
 	res.render('people', {title: metaData.title, includes: includes, person: [req.params.name], logos: logos})
 }

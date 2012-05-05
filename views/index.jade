@@ -1,4 +1,4 @@
-div.header
+div.header#header
   h1.banner= title
   ul.menu
     li.menuItem
@@ -12,6 +12,7 @@ div.header
     li.menuItem
       a(href='#contact') Contact
 
+p.profile#profile
 div.container
 
   div.console
@@ -23,7 +24,7 @@ div.container
       div.buffer
       h1.subHead HUMANS
       each person, key in people
-        div(class='person')
+        div(class='person', id=key)
           img(class='swap', src='images/'+key+'_hi_res_thumb.jpg')
           p !{person.blurb}
     div#news
@@ -54,4 +55,6 @@ div.container
         br
         h3 773.236.7474
         br
+
+  script(type='text/javascript', src='js/masonry.min.js')
   script(type='text/javascript', src='js/nhq.js')
