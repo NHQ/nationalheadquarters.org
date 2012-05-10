@@ -1,6 +1,7 @@
 var reel = document.getElementById('film')
 	,	container = document.querySelector('.container')
 	, head = document.getElementById('header')
+	,	profileBio = document.getElementById('profileBio')
 	
 	;
 	
@@ -30,13 +31,12 @@ var profiles = document.querySelectorAll('.person')
 	,	showProfile = function(evt){
 		var self = this;
 		var pic = this.children[0];
-		document.body.appendChild(pic);
+		profileContainer.appendChild(pic);
 		pic.classList.add('profilePic');
-		head.style.color = 'black';
-		head.style.backgroundColor = 'white';
 		profileContainer.style.display = 'block';
 		this.name = this.id.toUpperCase().replace('_', ' ');
-		writeLetters(this.name, profileContainer)
+		profileContainer.appendChild(profileBio);
+		writeLetters(this.name, profileBio)
 	}
 ;
 

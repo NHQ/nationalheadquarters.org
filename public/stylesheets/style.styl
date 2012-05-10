@@ -90,7 +90,7 @@ h4
 
 .profile
   position fixed
-  top 107px
+  top 121px
   left 0
   background white
   color color
@@ -100,6 +100,7 @@ h4
   font-size: 5em
   line-height 2em
   display none
+  padding 0 5%
   
 .person
   text-align left
@@ -117,11 +118,19 @@ h4
   cursor pointer
 
 .profilePic
-  position fixed
-  top 107px
-  left 10%
+  position relative
+  float left
+  min-width 320px
   width 20%
   z-index 4
+  clear both
+  margin-right 1em
+
+.profileBio
+  position relative
+  float left
+  width 67%
+  font-size: 18px  
 
 .person > p
   width 85%
