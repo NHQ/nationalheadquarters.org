@@ -18,12 +18,14 @@ var humans = fs.readdirSync('humans')
 	, people = Object.create(null)
 ;
 
-console.log(humans)
+// development shiz
+var images = fs.readdirSync('public/images/biographical');
+
+console.log(images)
 
 while (order.length){
 	var Name = order.shift();
 	fs.link('humans/'+Name+'/hi_res_thumb.jpg', 'public/images/'+Name+'_hi_res_thumb.jpg')
-	console.log(Name)
 	people[Name] = {
 		name: Name.replace('_', ' '),
 		bio: fs.readFileSync('humans/'+Name+'/bio.html', 'utf8'),
@@ -35,7 +37,6 @@ while (order.length){
 var news = fs.readFileSync('news/news.html', 'utf8')
 	,	logos = fs.readdirSync('public/images/logos')
 	;
-console.log(logos)
 var metaData = {
 	title: 'NATIONAL HEADQUARTERS'
 };
@@ -49,6 +50,9 @@ exports.index = function(req, res){
   res.render('index', { title: 'NATIONAL HEADQUARTERS', people: people, news: news, logos: logos})
 };
 
-exports.people = function(req, res){
-	res.render('people', {title: metaData.title, includes: includes, person: [req.params.name], logos: logos})
-}
+exports.bio = function(req, res){
+	var bio = people[req.params.name].bio;
+	console.log(bio);
+	res.writeHead('200');
+	res.end(bio);
+};
