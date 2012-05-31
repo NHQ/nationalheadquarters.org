@@ -48,7 +48,7 @@ a {
 .subHead > h1 {
   display: block;
   width: 100px;
-  z-index: 4;
+  z-index: 100;
 }
 h1.subHead {
   color: #fff;
@@ -57,6 +57,7 @@ h1.subHead {
   font: 2rem 'JeanLuc';
   width: 17%;
   margin: 0 auto 2rem;
+  text-align: center;
 }
 .banner {
   padding: 11px;
@@ -92,6 +93,37 @@ p {
   font: 1.2rem 'Lucida Sans Unicode';
   line-height: 1.63rem;
 }
+.txt {
+  max-width: 528px;
+  width: 32%;
+  float: right;
+  border-left: 1px solid #000;
+  padding: 1.5%;
+  margin-bottom: 3em;
+}
+.txt > p {
+  font-size: 1.6rem;
+  line-height: 1em;
+}
+.biom {
+  z-index: -1;
+  max-width: 1630px;
+}
+.biopictorial {
+  margin-bottom: 3em;
+  float: left;
+  width: 65%;
+  max-width: 1056px;
+  z-index: -1;
+}
+.biopic {
+  max-width: 528px;
+  width: 48%;
+  margin: 10px 0;
+}
+.biopic > img {
+  width: 100%;
+}
 h4 {
   font-size: 1rem;
 }
@@ -102,7 +134,7 @@ h4 {
   background: #fff;
   color: color;
   z-index: 3;
-  max-width: 2160px;
+  max-width: 1630px;
   font-size: 5em;
   display: none;
   padding: 0 5%;
@@ -140,6 +172,7 @@ h4 {
 .container {
   max-width: 2160px;
   margin: 0 auto;
+  visibility: hidden;
 }
 .humans {
   width: 100%;
@@ -205,6 +238,7 @@ h4 {
   text-align: center;
 }
 .footer {
+  clear: both;
   background: #000;
   color: #fff;
   bottom: 0;

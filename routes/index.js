@@ -21,7 +21,6 @@ var humans = fs.readdirSync('humans')
 // development shiz
 var images = fs.readdirSync('public/images/biographical');
 
-console.log(images)
 
 while (order.length){
 	var Name = order.shift();
@@ -29,8 +28,18 @@ while (order.length){
 	people[Name] = {
 		name: Name.replace('_', ' '),
 		bio: fs.readFileSync('humans/'+Name+'/bio.html', 'utf8'),
-		blurb: fs.readFileSync('humans/'+Name+'/blurb.html', 'utf8')
+		blurb: fs.readFileSync('humans/'+Name+'/blurb.html', 'utf8'),
+		biopics: fs.readdirSync('public/images/biopics/' + Name)
 	}
+	people[Name].biopics.forEach(function(e, i){
+		people[Name].biopics[i] = 'images/biopics/' + Name + '/' + e
+	});
+	people[Name].biopics.forEach(function(e, i){
+		if(e.indexOf('.DS') > 1){
+			people[Name].biopics.splice(i,1)
+		}
+	});
+	console.log(people[Name].biopics)	
 }
 
 
@@ -50,9 +59,13 @@ exports.index = function(req, res){
   res.render('index', { title: 'NATIONAL HEADQUARTERS', people: people, news: news, logos: logos})
 };
 
+exports.person = function(req, res){
+	var bio = people[req.params.name].bio;
+	res.render('person', {title: 'NATIONAL HEADQUARTERS', bio: bio.slice(bio.indexOf('<p>')), biopics: people[req.params.name].biopics, logos: logos, name:req.params.name.replace('_', ' ').toUpperCase()})
+};
+
 exports.bio = function(req, res){
 	var bio = people[req.params.name].bio;
-	console.log(bio);
 	res.writeHead('200');
 	res.end(bio);
 };

@@ -36,6 +36,8 @@ app.get('/', routes.index);
 
 app.get('/person/:name', routes.bio);
 
+app.get('/humans/:name', routes.person);
+
 var port = app.settings.env === 'production' ? 80 : 3004;
 app.listen(port);
 //console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

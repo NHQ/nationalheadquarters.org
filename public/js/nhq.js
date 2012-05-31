@@ -16,8 +16,8 @@ window.onload = function(){
 		,	profileBio = document.getElementById('profileBio')
 		, profileGallery = document.getElementById('profileGallery')
 		;
-	
-		container.style.width = window.innerWidth * .85 +'px';
+		container.style.width = Math.min(window.innerWidth * .85, 1630) +'px';
+		container.style.visibility = 'visible';
 	
 	var cs = window.getComputedStyle(container)
 		,	cr = window.getComputedStyle(reel)

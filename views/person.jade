@@ -1,0 +1,39 @@
+div.header#header
+	h1.banner= title
+	ul.menu
+		li.menuItem
+			a(href='../#humans') Humans
+		li.menuItem
+			a(href='../#news') News
+		li.menuItem
+			a(href='../#reel') Reel
+		li.menuItem
+			a(href='../#footer') Clients
+		li.menuItem
+			a(href='../#contact') Contact
+
+div.container
+	div.biom
+		div.buffer
+		h1.subHead 
+			!= name
+		div(class='txt')!= bio
+		div.biopictorial
+			- each b in biopics
+				div.biopic
+					img(src= '../' + b)
+
+script(type='text/javascript', src='../js/masonry.min.js')
+script(type='text/javascript')
+	window.onload = function(){
+		var c = document.querySelector('.container')
+		,		d = document.querySelector('.biopictorial')
+		;
+		c.style.width = Math.min(window.innerWidth * .85, 1630) +'px';
+		c.style.visibility = 'visible';
+		var cs = window.getComputedStyle(d);
+		var w = cs.width;
+		var ps = parseInt(w.slice(0, w.indexOf('px')));
+		console.log(parseInt(w.slice(0, w.indexOf('px'))))
+		var wall = new Masonry( d , {columnWidth: ps * .5});
+	};
